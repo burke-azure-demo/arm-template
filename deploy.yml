@@ -1,0 +1,28 @@
+name: $(Date:yyyyMMdd)$(Rev:.r)
+
+trigger:
+  branches:
+    include:
+      - stage
+      - master
+
+variables:
+  - name: templateFile
+    value: 'main.bicep'
+  - group: DWH ARM Prod
+
+pool:
+  vmImage: 'ubuntu-20.04'
+
+steps:
+  - task: AzureCLI@2
+    inputs:
+      azureSubscription: $(serviceConnection)
+      scriptType: bash
+      scriptLocation: inlineScript
+      inlineScript: |
+        az --version
+        az deployment group create --resource-group $(rgName) --template-file $(templateFile) --parameters \
+          env=$(env) \
+          sqlAdminLogin=$(sqlAdminLogin) \
+          sqlAdminPassword=$(sqlAdminPassword)
