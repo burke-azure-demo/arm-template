@@ -1,7 +1,7 @@
 param env string
 param location string
 
-var vNetName = 'BurkeWarehouse-${env}-VNet'
+var vNetName = 'burkewarehouse-${env}-vnet'
 
 resource vnet 'Microsoft.Network/virtualNetworks@2022-01-01' = {
   name: vNetName
