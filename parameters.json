@@ -5,9 +5,6 @@
     "env": {
       "value": "dev"
     },
-    "location": {
-      "value": "[resourceGroup().location]"
-    },
     "sqlAdminLogin": {
       "reference": {
         "keyVault": {
