@@ -9,10 +9,20 @@
       "value": ""
     },
     "sqlAdminLogin": {
-      "value": "requires_override"
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/2cb29de0-e6a0-4750-8a35-2cf70d3e99d8/resourceGroups/Burke2Stage/providers/Microsoft.KeyVault/vaults/Burke2KeyvaultStage"
+        },
+        "secretName": "ServerlessSqlAdminLogin"
+      }
     },
     "sqlAdminPassword": {
-      "value": "requires_override"
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/2cb29de0-e6a0-4750-8a35-2cf70d3e99d8/resourceGroups/Burke2Stage/providers/Microsoft.KeyVault/vaults/Burke2KeyvaultStage"
+        },
+        "secretName": "ServerlessSqlAdminPassword"
+      }
     }
   }
 }
