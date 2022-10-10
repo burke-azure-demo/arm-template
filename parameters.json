@@ -3,16 +3,16 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "env": {
-      "value": ""
+      "value": "dev"
     },
     "location": {
       "value": ""
     },
     "sqlAdminLogin": {
-      "value": ""
+      "value": "requires_override"
     },
     "sqlAdminPassword": {
-      "value": ""
+      "value": "requires_override"
     }
   }
 }
