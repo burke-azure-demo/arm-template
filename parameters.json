@@ -1,0 +1,25 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "env": {
+      "value": "dev"
+    },
+    "sqlAdminLogin": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/2cb29de0-e6a0-4750-8a35-2cf70d3e99d8/resourceGroups/Burke2Stage/providers/Microsoft.KeyVault/vaults/Burke2KeyvaultStage"
+        },
+        "secretName": "ServerlessSqlAdminLogin"
+      }
+    },
+    "sqlAdminPassword": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/2cb29de0-e6a0-4750-8a35-2cf70d3e99d8/resourceGroups/Burke2Stage/providers/Microsoft.KeyVault/vaults/Burke2KeyvaultStage"
+        },
+        "secretName": "ServerlessSqlAdminPassword"
+      }
+    }
+  }
+}
