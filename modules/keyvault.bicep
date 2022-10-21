@@ -14,7 +14,7 @@ resource warehouseKeyvault 'Microsoft.KeyVault/vaults@2022-07-01' = {
       name: 'standard'
     }
     tenantId: tenantId
-    enableSoftDelete: false
+    enableSoftDelete: true
     accessPolicies: [
       {
         tenantId: tenantId
