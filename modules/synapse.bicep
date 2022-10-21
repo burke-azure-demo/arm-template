@@ -32,4 +32,13 @@ resource synapse 'Microsoft.Synapse/workspaces@2021-06-01' = {
   }
 }
 
+resource synapseAllowAll 'Microsoft.Synapse/workspaces/firewallRules@2021-06-01' = {
+  name: 'allowAll'
+  parent: synapse
+  properties: {
+    startIpAddress: '0.0.0.0'
+    endIpAddress: '255.255.255.255'
+  }
+}
+
 output principalId string = synapse.identity.principalId
