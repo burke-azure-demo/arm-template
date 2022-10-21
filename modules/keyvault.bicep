@@ -1,6 +1,7 @@
 param env string
 param synapsePrincipalId string
 param location string
+param subnetId string
 
 var keyvaultName = 'Burke2Keyvault${env}'
 var tenantId = subscription().tenantId
@@ -27,6 +28,21 @@ resource warehouseKeyvault 'Microsoft.KeyVault/vaults@2022-07-01' = {
         }
       }
     ]
+    networkAcls: {
+      bypass: 'AzureServices'
+      defaultAction: 'Deny'
+      ipRules: [
+        {
+          value: '0.0.0.0/0'
+        }
+      ]
+      virtualNetworkRules: [
+        {
+          id: subnetId
+          ignoreMissingVnetServiceEndpoint: false
+        }
+      ]
+    }
     publicNetworkAccess: 'Enabled'
   }
 }
