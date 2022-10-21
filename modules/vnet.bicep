@@ -1,7 +1,7 @@
 param env string
 param location string
 
-var vNetName = 'burkewarehouse-${env}-vnet'
+var vNetName = 'burkewarehouse-${toLower(env)}-vnet'
 
 resource vnet 'Microsoft.Network/virtualNetworks@2022-01-01' = {
   name: vNetName
@@ -45,5 +45,3 @@ resource subnet 'Microsoft.Network/virtualNetworks/subnets@2022-01-01' = {
     ]
   }
 }
-
-output subnetId string = subnet.id

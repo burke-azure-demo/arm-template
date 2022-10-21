@@ -1,7 +1,7 @@
 @allowed([
-  'dev'
-  'stage'
-  'prod'
+  'Dev'
+  'Stage'
+  'Prod'
 ])
 param env string
 param location string = resourceGroup().location
@@ -45,6 +45,5 @@ module keyvault 'modules/keyvault.bicep' = {
     env: env
     synapsePrincipalId: synapse.outputs.principalId
     location: location
-    subnetId: vnet.outputs.subnetId
   }
 }

@@ -1,9 +1,8 @@
 param env string
 param synapsePrincipalId string
 param location string
-param subnetId string
 
-var keyvaultName = 'BurkeKeyvault${env}'
+var keyvaultName = 'Burke2Keyvault${env}'
 var tenantId = subscription().tenantId
 
 resource warehouseKeyvault 'Microsoft.KeyVault/vaults@2022-07-01' = {
@@ -15,18 +14,7 @@ resource warehouseKeyvault 'Microsoft.KeyVault/vaults@2022-07-01' = {
       name: 'standard'
     }
     tenantId: tenantId
-    networkAcls: {
-      bypass: 'AzureServices'
-      defaultAction: 'Deny'
-      ipRules: []
-      virtualNetworkRules: [
-        {
-          id: subnetId
-          ignoreMissingVnetServiceEndpoint: false
-        }
-      ]
-    }
-    enableSoftDelete: false
+    enableSoftDelete: true
     accessPolicies: [
       {
         tenantId: tenantId
