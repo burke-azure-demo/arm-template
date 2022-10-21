@@ -2,7 +2,7 @@ param env string
 param synapsePrincipalId string
 param location string
 
-var keyvaultName = 'BurkeKeyvault${env}'
+var keyvaultName = 'Burke2Keyvault${env}'
 var tenantId = subscription().tenantId
 
 resource warehouseKeyvault 'Microsoft.KeyVault/vaults@2022-07-01' = {
