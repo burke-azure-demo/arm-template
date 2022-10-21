@@ -45,5 +45,6 @@ module keyvault 'modules/keyvault.bicep' = {
     env: env
     synapsePrincipalId: synapse.outputs.principalId
     location: location
+    subnetId: vnet.outputs.subnetId
   }
 }
