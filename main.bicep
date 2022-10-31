@@ -5,6 +5,8 @@
 ])
 param env string
 param location string = resourceGroup().location
+param serviceConnectionClientId string
+param serviceConnectionAppObjectId string
 
 @secure()
 param sqlAdminLogin string
@@ -46,5 +48,7 @@ module keyvault 'modules/keyvault.bicep' = {
     synapsePrincipalId: synapse.outputs.principalId
     location: location
     subnetId: vnet.outputs.subnetId
+    serviceConnectionClientId: serviceConnectionClientId
+    serviceConnectionAppObjectId: serviceConnectionAppObjectId
   }
 }

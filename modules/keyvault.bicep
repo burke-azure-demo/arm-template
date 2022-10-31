@@ -2,6 +2,8 @@ param env string
 param synapsePrincipalId string
 param location string
 param subnetId string
+param serviceConnectionClientId string
+param serviceConnectionAppObjectId string
 
 var keyvaultName = 'Burke2Keyvault${env}'
 var tenantId = subscription().tenantId
@@ -22,6 +24,16 @@ resource warehouseKeyvault 'Microsoft.KeyVault/vaults@2022-07-01' = {
         objectId: synapsePrincipalId
         permissions: {
           secrets:[
+            'Get'
+            'List'
+          ]
+        }
+      }
+      {
+        tenantId: serviceConnectionClientId
+        objectId: serviceConnectionAppObjectId
+        permissions: {
+          secrets: [
             'Get'
             'List'
           ]
